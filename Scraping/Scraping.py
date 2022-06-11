@@ -30,7 +30,7 @@ def get_Data(url):
         # transfome date from string to datetime
         date = date.split('T')[0]
         date = pd.to_datetime(date)
-        last_ten_days = datetime.now() - timedelta(days=10)
+        last_ten_days = datetime.now() - timedelta(days=30)
         if date >= last_ten_days:
             h3 = article.find('h3', class_='vw-post-box-title')
             link = h3.find('a', href=True)['href'] 
@@ -42,7 +42,7 @@ def get_Data(url):
 
 
 #list of urls to scrape
-n = 2
+n = 20
 urls = ['https://www.challenge.ma/category/economie/page/'+str(k) for k in range(1,n)]
 
          
@@ -52,5 +52,7 @@ urls = ['https://www.challenge.ma/category/economie/page/'+str(k) for k in range
 for url in urls:
     get_Data(url)
         
-# save Data into a dataframe
-pd.DataFrame(Data, columns=['text', 'date', 'link']).to_csv('1.csv', index=False)
+# save Data into a dataframe and intotaly save it into a csv file in the Raw data folder
+
+df = pd.DataFrame(Data, columns=['text', 'date', 'link'])
+df.to_csv("1.csv", index=False, sep=',')

@@ -19,7 +19,7 @@ def get_Data(url):
         link = article.find('a', href=True)['href'] 
         
         text, date = scrap_page(link) 
-        last_ten_days = datetime.now() - timedelta(days=10)
+        last_ten_days = datetime.now() - timedelta(days=30)
         
         if date >= last_ten_days:
             if text and date and link:
@@ -46,7 +46,7 @@ def scrap_page(link):
 
 
 #list of urls to scrape
-n = 6
+n = 16
 urls = ['https://lematin.ma/journal/economie/'+str(k) for k in range(1,n)]
 
          
@@ -57,4 +57,4 @@ for url in urls:
     get_Data(url)
         
 # save Data into a dataframe
-pd.DataFrame(Data, columns=['text', 'date', 'link']).to_csv('2.csv', index=False)
+pd.DataFrame(Data, columns=['text', 'date', 'link']).to_csv('3.csv', index=False)
