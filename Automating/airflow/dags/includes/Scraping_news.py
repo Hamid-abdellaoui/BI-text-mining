@@ -21,46 +21,42 @@ def scrap_challenge(days=30,nbr_pages=20, **kwargs):
         box = soup.find(id='vw-page-content')
         articles = box.find_all(class_='vw-block-grid-item') 
         
-        # for each article we scrap it's information
-        for article in articles:
-            date = article.find('time')['datetime']
-            
-            # transfome date from string to datetime
-            date = date.split('T')[0]
-            date = pd.to_datetime(date)
-            last_ten_days = datetime.now() - timedelta(days=days)
-            
-            # check the date condition to scrap only specified nbr of days
-            if date >= last_ten_days:
-                h3 = article.find('h3', class_='vw-post-box-title')
-                titre = h3.get_text()
+        if len(articles)>0:
+            for article in articles:
+                link = article.find('a', href=True)['href'] 
+                titre = article.find('h3').get_text()
                 titre = " ".join(titre.split())
-                img = article.find('img')['src']
-                link = h3.find('a', href=True)['href'] 
-                
-                # scrap each link and get a text
+
                 try:
                     r = requests.get(link)
                     soup = BeautifulSoup(r.content, 'html.parser')
                     article = soup.find(class_='vw-post-content').get_text()
-                    text = " ".join(article.split())
+                    p = soup.find('p', class_='vw-post-meta-author')
+                    img = soup.find('img',itemprop="image")['src']
+                    date = p.find('meta', itemprop='datePublished')['content']
+ 
+                    # transfome date from string to datetime
+                    date = date.split(' ')[0]
+                    date = pd.to_datetime(date)
+                    text, date = " ".join(article.split()), date
                 except:
-                    text =''
-
-                # filling the Data table by appending rows
-                if text and date and link and titre:
-                    Data.append([str(titre), text, date, link, img])
-            else:
-                break
-            
+                    img, text, date ='','', datetime.now() 
+                
+                last_ten_days = datetime.now() - timedelta(days=days)
+                if date >= last_ten_days:
+                    if text and date and link and titre:
+                        Data.append([titre, text, date, link, img])
+                else:
+                    break
+        else:
+            continue
     # save Data into a dataframe and intotaly save it into a csv file in the Raw data folder
     df = pd.DataFrame(Data, columns=[titre, text, date, link, img])
-    df.to_csv('data/challenge.csv',index=False, header=['titre','text','date','link','img'], sep=',')
-    kwargs['ti'].xcom_push(key='raw_scrapped', value='data/challenge.csv')
+    df.to_csv('data/Raw/challenge.csv',index=False, header=['titre','text','date','link','img'], sep=',')
    
  
 # La Vie Eco scraper    
-def scrap_lavieeco(days=30,nbr_pages=10, **kwargs):
+def scrap_lavieeco(days=30,nbr_pages=10):
     Data = [] 
     for url in ['https://www.lavieeco.com/economie/page/'+str(k) for k in range(1,nbr_pages)]:
                 
@@ -100,12 +96,12 @@ def scrap_lavieeco(days=30,nbr_pages=10, **kwargs):
                 break    
         # save Data into a dataframe and intotaly save it into a csv file in the Raw data folder
     df = pd.DataFrame(Data, columns=[titre, text, date, link, img])
-    df.to_csv('data/lavieeco.csv',index=False, header=['titre','text','date','link','img'], sep=',')
-    kwargs['ti'].xcom_push(key='raw_scrapped', value='data/lavieeco.csv')        
+    df.to_csv('data/Raw/lavieeco.csv',index=False, header=['titre','text','date','link','img'], sep=',')
+      
 
 
 # Le matin scraper
-def scrap_lematin(days=30,nbr_pages=16, **kwargs):
+def scrap_lematin(days=30,nbr_pages=16):
     Data = []
     for url in ['https://lematin.ma/journal/economie/'+str(k) for k in range(1,nbr_pages)]:
         r = requests.get(url)
@@ -119,21 +115,22 @@ def scrap_lematin(days=30,nbr_pages=16, **kwargs):
             link = article.find('a', href=True)['href'] 
             titre = article.find('h4').get_text()
             titre = " ".join(titre.split())
-            img = article.find('img', class_='card-img-top')['src']
+
             try:
                 r = requests.get(link)
                 soup = BeautifulSoup(r.content, 'html.parser')
                 article = soup.find(class_='card-body').get_text()
                 p = soup.find('p', class_='author')
-                date = p.find_all('meta')[1]['content']
-                
+                img = soup.find('img',itemprop="image")['src']
+                date = p.find('meta', itemprop='datePublished')['content']
+ 
                 # transfome date from string to datetime
                 date = date.split(' ')[0]
-                
                 date = pd.to_datetime(date)
                 text, date = " ".join(article.split()), date
             except:
-                text, date ='', datetime.now() 
+                img, text, date ='','', datetime.now() 
+            
             last_ten_days = datetime.now() - timedelta(days=days)
             if date >= last_ten_days:
                 if text and date and link and titre:
@@ -142,5 +139,4 @@ def scrap_lematin(days=30,nbr_pages=16, **kwargs):
                 break    
         # save Data into a dataframe 
     df = pd.DataFrame(Data, columns=[titre, text, date, link, img])
-    df.to_csv('data/lematin.csv',index=False, header=['titre','text','date','link','img'], sep=',')
-    kwargs['ti'].xcom_push(key='raw_scrapped', value='data/lematin.csv')
+    df.to_csv('data/Raw/lematin.csv',index=False, header=['titre','text','date','link','img'], sep=',')
