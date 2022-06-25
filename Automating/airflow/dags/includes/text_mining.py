@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import re
 np.set_printoptions(precision=2, linewidth=80)
-from nltk import FreqDist
+# from nltk import FreqDist
 
 # Gensim
 import gensim
@@ -275,8 +275,9 @@ def preprocessing(corpus):
     
     return corpus
 
-def process_corpus(corpus,indice):
+def process_corpus(corpus,indice, l_periods):
     """retourne une liste output"""
+    dataset = pd.read_csv('data/Dataset/data.csv')
     ########### former la matrice tf-idf #############################
     corpus_lemmatized=tokenize_text(corpus) 
     id2word = corpora.Dictionary(corpus_lemmatized)
@@ -336,6 +337,8 @@ def data_frame_bigrams():
     """Create DataFrame with list of bigrams to be used in association rule learning with R"""
     corpus = preprocessing(corpus)
     list_bigrams = make_bigrams(corpus)
+    print(len(list_bigrams))
+    print(list_bigrams[0][0])
     # Create a list of column names
     columns_bigrams_df = []
     for bigrams in list_bigrams :
@@ -353,3 +356,34 @@ def data_frame_bigrams():
     
     df = pd.DataFrame(data_frame_bigrams,columns=columns_bigrams_df)
     df.to_csv("data/outputs/data_frame_bigrams.csv",index=False)
+
+def corpuses_NMF ():
+    dataset = pd.read_csv('data/Dataset/data.csv')
+    print(type(dataset['date']))
+    print(dataset.info())
+    corpus = dataset.text.values.tolist()
+    corpuses_NMF = []
+    l_periods=list(set(dataset.period.values))
+    l_periods.sort()
+    for i in range(len(l_periods)-1) :
+        indice1=dataset.period.values.tolist().index(l_periods[i])
+        indice2=dataset.period.values.tolist().index(l_periods[i+1])
+        liste = []
+        for j in range(indice1,indice2,1):
+            liste.append(corpus[j]) 
+        corpuses_NMF.append(liste)
+
+    dernier_indice=dataset.period.values.tolist().index(l_periods[1])
+    derniere_corpus = [] 
+    for j in range(dernier_indice,len(dataset),1):
+        derniere_corpus.append(corpus[j]) 
+    corpuses_NMF.append(derniere_corpus)
+    
+    outputs =[]
+    for i in range(len(corpuses_NMF)): 
+        outputs.append(process_corpus(corpuses_NMF[i],i,l_periods))
+    
+    print(type(outputs))
+    print(outputs)
+    # transform to json and push to next task (databases)
+    # return outputs
