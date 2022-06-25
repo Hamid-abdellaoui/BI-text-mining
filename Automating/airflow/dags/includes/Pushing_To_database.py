@@ -1,10 +1,6 @@
 import psycopg2
 import pandas as pd
-df = pd.read_csv('data/Dataset/data.csv')
-topics = pd.read_csv('data/Outputs/topics.csv')
-trends = pd.read_csv('data/Outputs/trends.csv')
-topics_columns = topics.columns.tolist()
-trends_columns = trends.columns.tolist()
+
 
 def creating_tables():
     try:
