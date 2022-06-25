@@ -17,7 +17,6 @@ unittests.db
 # ignore all files and folders under pgdata
 # pgdata/
 # pgdata/*
-
 # /pgdata/
 
 # Airflow temporary artifacts
