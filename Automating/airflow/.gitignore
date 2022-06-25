@@ -14,8 +14,11 @@ secrets.py
 airflow.db
 unittests.db
 
-# pgdata
-/pgdata/
+# ignore all files and folders under pgdata
+# pgdata/
+# pgdata/*
+
+# /pgdata/
 
 # Airflow temporary artifacts
 airflow/git_version
