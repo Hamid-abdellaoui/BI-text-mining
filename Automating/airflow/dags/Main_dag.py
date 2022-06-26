@@ -37,7 +37,6 @@ def initial_processing():
     df.to_csv('data/Dataset/data.csv',index=False, header=['titre','text','date','link','img'], sep=',')
     
 
-    
 dag = DAG(
     dag_id='Data_pipeline_for_text_mining',
     default_args=default_args,
@@ -85,7 +84,7 @@ with dag:
         depends_on_past = True
         )
     
-    # Start Task Group definition
+
     with TaskGroup(group_id='text_mining') as text_mining:
         # corpuses_NMF = PythonOperator(
         #     task_id='corpuses_NMF',
@@ -100,7 +99,7 @@ with dag:
         corpuses_NMF = DummyOperator(task_id='corpuses_NMF')
         data_frame_bigrams = DummyOperator(task_id='data_frame_bigrams')
         
-    # End Task Group definition
+
     
     # pushing data to postgresq
     with TaskGroup(group_id='Pushing_to_database') as Pushing_to_database:
