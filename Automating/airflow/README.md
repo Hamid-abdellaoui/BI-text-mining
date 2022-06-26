@@ -1,15 +1,12 @@
-# Open Options Chains
-### *A Data Pipeline Solution for Collecting Options Data at Scale*
-This repository contains the code to implement my Airflow/PostgreSQL solution for managing a data pipeline for collection options data. I have written a series of posts detailing the setup:
+# Text mining & data warehousing pipeline
+### *A Data Pipeline Solution for Collecting Economy articles Data at Scale*
 
-1. [Database Design](https://medium.datadriveninvestor.com/towards-open-options-chains-a-data-pipeline-for-collecting-options-data-at-scale-part-i-f757c156639b)
-2. [Foundational ETL Code](https://medium.datadriveninvestor.com/towards-open-options-chains-part-ii-foundational-etl-code-2bca40251f95)
-3. [Getting Started with Airflow](https://medium.datadriveninvestor.com/towards-open-options-chains-part-iii-getting-started-with-airflow-61c7c154f00c)
-4. [Building the DAG](https://hackernoon.com/how-to-build-a-directed-acyclic-graph-dag-towards-open-options-chains-part-iv)
-5. [Containerising the Pipeline](https://hackernoon.com/towards-open-options-chains-part-v-containerizing-the-pipeline)
+<br>
+
+## Inspired by ( cloned and modified) :
+[Containerising Pipeline](https://hackernoon.com/towards-open-options-chains-part-v-containerizing-the-pipeline)
 
 ## Pre-requisites
-1. Operating system: Linux (I'm using Ubuntu 20.04)
 2. Docker
 3. Docker Compose
 

@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block title %}Dashboard Textmining {% endblock %} {% block
+content %}
+
+
+<div style="padding: 20px !important;" class="row text-left box  align-self-center  ">
+  <div class="col-md-6">
+    <h4> <strong> Ceci est un Dashboard de Suivi des KPI de Text mining et Topic Modeling. </strong> <br><br>
+      La Table suivante donne quelques chiffres sur les données scrapées</h4>
+  </div>
+  <div class="col-md-6">
+  <table>
+    <thead>
+
+      <tr>
+        {% for col in column_names %}
+        <th>
+        &nbsp;
+          {{col}} &nbsp;
+         
+        </th>
+        {% endfor %}
+      </tr>
+
+    </thead>
+    <tbody>
+      {% for row in row_data %}
+      <tr>
+        {% for col, row_ in zip(column_names, row) %}
+        <td> &nbsp; {{row_}} &nbsp;</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+     
+    </tbody>
+
+  </table>
+</div>
+</div>
+
+<br>
+<div style="padding: 20px !important;" class="row text-center box">
+  <div class="col-md-12 ">
+    <strong>
+      Nombres d'arcticles scrapés par jours (pendant 60 derniers jours)
+    </strong>
+
+    <img src="{{url_for('static', filename='images/count_by_ressources.png')}}"  style="padding: 0 !important; margin: 0 !important;" class="img-fluid" width="100%">
+  </div>
+
+</div>
+<br>
+<div style="padding: 20px !important;" class="row text-center align-self-center box justify-content-between">
+
+
+
+  <div class="col-md-6 ">
+    <div class="title">
+      <h4> Topics most covered in the last month</h4>
+    </div>
+
+
+    <div id="image1">
+      <img src="{{url_for('static', filename='images/topics.png')}}" alt="n_btc" class="img-fluid" width="500">
+    </div>
+  </div>
+
+
+  <div class="col-md-6 ">
+    <div class="title">
+      <h4> Evolution of topics most covered in the last month</h4>
+    </div>
+      <img src="{{url_for('static', filename='images/trends.png')}}" alt="n_btc" class="img-fluid" width="500">
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+<br><br><br><br><br>
+{% endblock %}
