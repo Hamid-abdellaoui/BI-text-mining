@@ -8,7 +8,6 @@ done
 >&2 echo "PostgreSQL service started successfully. Initialising Airflow..."
 
 # Initialise database
-activate
 airflow db init
 
 # Create account

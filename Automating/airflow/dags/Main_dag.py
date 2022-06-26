@@ -7,7 +7,7 @@ from airflow.operators.python_operator import PythonOperator
 # from includes.Scraping_news import scrap_lematin, scrap_challenge, scrap_lavieeco
 # from includes.text_mining import *
 # from includes.text_mining import data_frame_bigrams
-from includes.Pushing_To_database import creating_tables, loading_to_database
+from includes.Pushing_To_database import creating_table5, creating_table1, creating_table2, creating_table3, loading_to_database, creating_table4
 from airflow.utils.task_group import TaskGroup
 import pandas as pd
 import datetime
@@ -104,11 +104,29 @@ with dag:
     
     # pushing data to postgresq
     with TaskGroup(group_id='Pushing_to_database') as Pushing_to_database:
-        creating_tables = PythonOperator(
-            task_id='creating_tables',
-            python_callable=creating_tables,
-            # provide_context=True
-        )
+        with TaskGroup(group_id='creating_tables') as creating_tables :
+            creating_table1 = PythonOperator(
+                task_id='creating_table1',
+                python_callable=creating_table1,
+            )
+            creating_table2 = PythonOperator(
+                task_id='creating_table2',
+                python_callable=creating_table2,
+            )
+            creating_table3 = PythonOperator(
+                task_id='creating_table3',
+                python_callable=creating_table3,
+            )
+            creating_table4 = PythonOperator(
+                task_id='creating_table4',
+                python_callable=creating_table4,
+            )
+            creating_table5 = PythonOperator(
+                task_id='creating_table5',
+                python_callable=creating_table5,
+            )
+                
+                
         loading_to_database = PythonOperator(
             task_id='loading_to_database',
             python_callable=loading_to_database,
