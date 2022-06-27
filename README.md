@@ -13,6 +13,7 @@ This project is divided into 5 parts, each part is in an independent directory:
 - **[Part 4]**: **[Reporting](/Reporting/)**
 - **[Part 5]**: **[Mining](/Mining/)**
 
+<br>
 
 # Further Details
 
