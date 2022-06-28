@@ -69,3 +69,11 @@ Reporting results via a simple dashboard as follows:
 ## 5. **[Mining](/Mining/)** : 
 Extract association rules (R and python).
 
+
+<br>
+<br>
+
+# Contrubutors :
+<a href="https://github.com/Hamid-abdellaoui/Bitcoin-penetration/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Hamid-abdellaoui/Bitcoin-penetration" />
+</a>
