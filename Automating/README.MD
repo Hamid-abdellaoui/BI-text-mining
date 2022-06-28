@@ -1,3 +1,14 @@
+# **[Automating :](/Automating/)** 
+
+    This part of the project aims to automate the process of scraping, text processing, Datawarehousing and loading Data into Postgresql Database, all archested in Airflow and under a Docker container.
+
+The Datapipeline architecture is as follows:
+
+<!-- image -->
+![](/Automating/airflow/data/Image1.png)
+
+<br>
+
 # Text mining & data warehousing pipeline
 ### *A Data Pipeline Solution for Collecting Economy articles Data at Scale*
 
@@ -12,10 +23,6 @@
 
 ## Installation
 If you have Git installed, clone the repository to your local machine.
-
-```bash
-git clone https://github.com/chrischow/open_options_chains.git
-```
 
 Otherwise, you may download the code and unzip the contents in a folder of your choice. Then, `cd` into that directory. You'll see:
 

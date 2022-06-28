@@ -17,13 +17,18 @@ This project is divided into 5 parts, each part is in an independent directory:
 
 # Further Details
 
-1. **[Scraping](/Scraping/)** : Scrapping articles (Title, publiction date, Image, Link, Full text...)from Moroccan news websites(BeatifulSoup and requests).
+## 1. **[Scraping](/Scraping/)** : 
+Scrapping articles (Title, publiction date, Image, Link, Full text...)from Moroccan news websites(BeatifulSoup and requests).
 
-2. **[Text_processing](/Text_processing/)** : Apply some text mining methods and algorithms(TF,IDF, NMF, TOPIC MODELING).
+## 2. **[Text_processing](/Text_processing/)** : 
+Apply some text mining methods and algorithms(TF,IDF, NMF, TOPIC MODELING).
 
-3. **[Automating](/Automating/)** : Automate the process of scraping, text processing, Datawarehousing and loading Data into Postgresql Database(Airflow, Docker...).
+## 3. **[Automating](/Automating/)** : 
+Automate the process of scraping, text processing, Datawarehousing and loading Data into Postgresql Database(Airflow, Docker...).
 
-4. **[Reporting](/Reporting/)** : Present results and key measures in a dashboard (Web app with Flask).
+## 4. **[Reporting](/Reporting/)** : 
+Present results and key measures in a dashboard (Web app with Flask).
 
-5. **[Mining](/Mining/)** : Extract association rules (R and python).
+## 5. **[Mining](/Mining/)** : 
+Extract association rules (R and python).
 
