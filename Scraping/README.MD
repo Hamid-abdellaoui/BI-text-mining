@@ -1,4 +1,4 @@
-# **[Scraping](/Scraping/)** : 
+# **[Scraping](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Scraping/)** : 
 
 This part of project aims to extract and process text from a large amount of articles scrapped from many Moroccan news Websites.
 

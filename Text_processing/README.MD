@@ -1,4 +1,4 @@
-# **[Text_processing :](/Text_processing/)** 
+# **[Text_processing :](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Text_processing/)** 
     
     Apply some text mining methods and algorithms(TF,IDF, NMF, TOPIC MODELING).
 
@@ -9,4 +9,4 @@
 
     The following picture show one of the returned results: evolution of the most common topics by time in the one month.
 <!-- image -->
-![](/Text_processing/Image1.png)
+![](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Text_processing/Image1.png)

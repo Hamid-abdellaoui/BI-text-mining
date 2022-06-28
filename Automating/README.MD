@@ -1,11 +1,11 @@
-# **[Automating :](/Automating/)** 
+# **[Automating :](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Automating/)** 
 
     This part of the project aims to automate the process of scraping, text processing, Datawarehousing and loading Data into Postgresql Database, all archested in Airflow and under a Docker container.
 
 The Datapipeline architecture is as follows:
 
 <!-- image -->
-![](/Automating/data/Image1.png)
+![](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Automating/data/Image1.png)
 
 <br>
 

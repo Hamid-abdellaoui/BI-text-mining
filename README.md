@@ -7,17 +7,17 @@ This project is divided into 5 parts, each part is in an independent directory:
 
 
 
-- **[Part 1]**: **[Scraping](/Scraping/)**
-- **[Part 2]**: **[Text_processing](/Text_processing/)**
-- **[Part 3]**: **[Automating](/Automating/)**
-- **[Part 4]**: **[Reporting](/Reporting/)**
-- **[Part 5]**: **[Mining](/Mining/)**
+- **[Part 1]**: **[Scraping](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Scraping/)**
+- **[Part 2]**: **[Text_processing](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Text_processing/)**
+- **[Part 3]**: **[Automating](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Automating/)**
+- **[Part 4]**: **[Reporting](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Reporting/)**
+- **[Part 5]**: **[Mining](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Mining/)**
 
 <br>
 
 # Further Details
 
-## 1. **[Scraping](/Scraping/)** : 
+## 1. **[Scraping](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Scraping/)** : 
 Scrapping articles (Title, publiction date, Image, Link, Full text...)from Moroccan news websites(BeatifulSoup and requests).
 
 ### <b> Ressources : </b>
@@ -36,7 +36,7 @@ Data was retrieved from the following websites:
 - `link`
 - `full text`.
 
-## 2. **[Text_processing](/Text_processing/)** : 
+## 2. **[Text_processing](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Text_processing/)** : 
 Apply some text mining methods and algorithms(TF,IDF, NMF, TOPIC MODELING).
 
 * >Texts are pre-treated and cleaned using the basic text processing techniques such as :
@@ -53,20 +53,20 @@ Apply some text mining methods and algorithms(TF,IDF, NMF, TOPIC MODELING).
     - `NMF` 
     - `Topic Modeling`.
 
-## 3. **[Automating](/Automating/)** : 
+## 3. **[Automating](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Automating/)** : 
 Automate the process of scraping, text processing, Datawarehousing and loading Data into Postgresql Database(Airflow, Docker...).
 The Datapipeline architecture is as follows:
 
 <!-- image -->
-![](/Automating/data/Image1.png)
+![](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Automating/data/Image1.png)
 
-## 4. **[Reporting](/Reporting/)** : 
+## 4. **[Reporting](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Reporting/)** : 
     Present results and key measures in a dashboard (Web app with Flask).
 
 Reporting results via a simple dashboard as follows:
 <!-- IMAGE -->
-![](/Reporting/Dahboarding%20App/static/images/Image1.png)
-## 5. **[Mining](/Mining/)** : 
+![](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Reporting/Dahboarding%20App/static/images/Image1.png)
+## 5. **[Mining](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Mining/)** : 
 Extract association rules (R and python).
 
 
