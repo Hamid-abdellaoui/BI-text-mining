@@ -60,12 +60,15 @@ The Datapipeline architecture is as follows:
 <!-- image -->
 ![](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Automating/data/Image1.png)
 
+
 ## 4. **[Reporting](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Reporting/)** : 
     Present results and key measures in a dashboard (Web app with Flask).
 
 Reporting results via a simple dashboard as follows:
 <!-- IMAGE -->
-![](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Reporting/Dahboarding%20App/static/images/Image1.png)
+![](https://raw.githubusercontent.com/Hamid-abdellaoui/BI-text-mining/master/Reporting/Dahboarding%20App/static/images/Image1.png)
+
+
 ## 5. **[Mining](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Mining/)** : 
 Extract association rules (R and python).
 
