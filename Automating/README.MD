@@ -5,7 +5,7 @@
 The Datapipeline architecture is as follows:
 
 <!-- image -->
-![](/Automating/airflow/data/Image1.png)
+![](/Automating/data/Image1.png)
 
 <br>
 
