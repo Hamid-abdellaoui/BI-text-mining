@@ -29,7 +29,7 @@ Data was retrieved from the following websites:
 
 ### <b> Data structure : </b>
 
-> We scrapped the Economy subcatoey pages for each news website. for each article we got its :
+> We scrapped the Economy subcategory pages for each news website. for each article we got its :
 - `title` 
 - `publication date`
 - `image`
@@ -58,7 +58,7 @@ Automate the process of scraping, text processing, Datawarehousing and loading D
 The Datapipeline architecture is as follows:
 
 <!-- image -->
-![](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Automating/data/Image1.png)
+![](https://github.com/Hamid-abdellaoui/BI-text-mining/blob/master/Automating/data/Image1.png?raw=true)
 
 
 ## 4. **[Reporting](https://github.com/Hamid-abdellaoui/BI-text-mining/tree/master/Reporting/)** : 
