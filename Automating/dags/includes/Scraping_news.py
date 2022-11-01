@@ -54,7 +54,7 @@ def scrap_challenge(days=30,nbr_pages=20, **kwargs):
     df = pd.DataFrame(Data, columns=[titre, text, date, link, img])
     df.to_csv('data/Raw/challenge.csv',index=False, header=['titre','text','date','link','img'], sep=',')
    
- 
+
 # La Vie Eco scraper    
 def scrap_lavieeco(days=30,nbr_pages=10):
     Data = [] 
